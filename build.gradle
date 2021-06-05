@@ -26,9 +26,13 @@ javafx {
 
 repositories {
     mavenCentral()
+    maven {
+        url 'http://nexus.gluonhq.com/nexus/content/repositories/releases/'
+    }
 }
 
 dependencies {
+    implementation group: 'com.gluonhq', name: 'charm', version: '6.0.6'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
