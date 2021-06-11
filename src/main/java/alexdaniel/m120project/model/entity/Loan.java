@@ -10,8 +10,6 @@ import java.util.Date;
 public class Loan {
     public Long id;
     public String name;
-    public String email;
-    public String phoneNumber;
     public Date date;
     public Movie movie;
     public Membership membership;
