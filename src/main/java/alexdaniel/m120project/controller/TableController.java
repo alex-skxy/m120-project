@@ -12,7 +12,7 @@ public class TableController {
     @FXML
     public TableView<Loan> loanTable;
 
-    TableController(){
+    public TableController() {
         TableColumn<Loan, String> nameColumn = new TableColumn<>("Name");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         //TODO make columns
