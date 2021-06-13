@@ -14,7 +14,7 @@ public class LoanRepository {
         loans = new ArrayList<>();
     }
 
-    public static void createMovie(Loan loan) {
+    public static void createLoan(Loan loan) {
         loans.add(loan);
         loan.id = (long) loans.indexOf(loan);
     }

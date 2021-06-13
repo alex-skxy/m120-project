@@ -73,7 +73,7 @@
                     <TableView fx:id="loanTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                         <columns>
                             <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name"/>
-                            <TableColumn fx:id="movieTitleColumn" prefWidth="75.0" text="Video">
+                            <TableColumn fx:id="movieTitleColumn" prefWidth="75.0" text="Movie">
                             </TableColumn>
                             <TableColumn fx:id="expectedReturnDateColumn" prefWidth="75.0" text="Expected Return Date"/>
                             <TableColumn fx:id="isLateColumn" prefWidth="75.0" text="Is Late"/>
@@ -103,7 +103,7 @@
                             <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
                                         AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <children>
-                                    <Button mnemonicParsing="false" text="Create" AnchorPane.bottomAnchor="0.0"
+                                    <Button onAction="#create" mnemonicParsing="false" text="Create" AnchorPane.bottomAnchor="0.0"
                                             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                                             AnchorPane.topAnchor="0.0">
                                     </Button>
