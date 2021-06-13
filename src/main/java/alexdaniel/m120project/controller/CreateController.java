@@ -72,7 +72,7 @@ public class CreateController {
     public void calculateLoanUntilDate(ActionEvent actionEvent) {
         var calendar = Calendar.getInstance();
         calendar.setTime(loan.getDate());
-        calendar.add(Calendar.DAY_OF_MONTH, loan.getMembership().getExtraDays());
+        calendar.add(Calendar.DAY_OF_MONTH, loan.getMembership().getExtraDays() + 30);
 
         loanUntilField.setValue(LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate());
     }
