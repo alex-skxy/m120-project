@@ -42,7 +42,7 @@ public class Main extends Application {
                         .returned(false)
                         .build());
 
-        Stage root = FXMLLoader.load(getClass().getResource("view/tabledisplay.fxml"));
+        Stage root = FXMLLoader.load(getClass().getResource("view/table.fxml"));
 
         stage = root;
         stage.show();

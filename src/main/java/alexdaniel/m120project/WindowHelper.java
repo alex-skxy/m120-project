@@ -21,21 +21,21 @@ public class WindowHelper {
 
 
     public void openCreateStage(Stage previousStage) throws IOException {
-        Stage stage = FXMLLoader.load(getClass().getResource("view/createdisplay.fxml"));
+        Stage stage = FXMLLoader.load(getClass().getResource("view/create.fxml"));
         stage.setY(previousStage.getY());
         stage.setX(previousStage.getX());
         stage.show();
     }
 
     public void openTableStage(Stage previousStage) throws IOException {
-        Stage stage = FXMLLoader.load(getClass().getResource("view/tabledisplay.fxml"));
+        Stage stage = FXMLLoader.load(getClass().getResource("view/table.fxml"));
         stage.setY(previousStage.getY());
         stage.setX(previousStage.getX());
         stage.show();
     }
 
     public EditController openEditStage(Stage previousStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/editdisplay.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/edit.fxml"));
         Stage stage = loader.load();
         EditController editController = loader.<EditController>getController();
         stage.setY(previousStage.getY());
