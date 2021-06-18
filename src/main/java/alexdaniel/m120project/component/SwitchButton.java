@@ -1,4 +1,4 @@
-package alexdaniel.m120project.controller;
+package alexdaniel.m120project.component;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
@@ -19,7 +19,7 @@ public class SwitchButton extends Label {
 
     public SwitchButton() {
         Button switchBtn = new Button();
-        switchBtn.setPrefWidth(40);
+        switchBtn.setPrefWidth(50);
         switchBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {

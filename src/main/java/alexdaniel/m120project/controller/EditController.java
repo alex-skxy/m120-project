@@ -1,6 +1,7 @@
 package alexdaniel.m120project.controller;
 
 import alexdaniel.m120project.WindowHelper;
+import alexdaniel.m120project.component.SwitchButton;
 import alexdaniel.m120project.model.entity.Loan;
 import alexdaniel.m120project.model.entity.Membership;
 import alexdaniel.m120project.model.repository.LoanRepository;
@@ -52,7 +53,7 @@ public class EditController {
                             loan.setMembership(item);
                         }
 
-                        setText(item == null ? "" : item.title);
+                        setText(item == null ? "" : item.getTitle());
                     }
                 };
             }
