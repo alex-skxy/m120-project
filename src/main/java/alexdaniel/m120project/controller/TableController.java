@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 public class TableController {
@@ -61,8 +62,12 @@ public class TableController {
         List<Loan> foundLoans = new ArrayList<>();
         var dateFormatter = new SimpleDateFormat("dd.MM.yyyy");
         for (Loan loan : loans) {
-            var date = dateFormatter.format(loan.calculateReturnDate().getTime());
-            if (loan.getName().contains(searchString) || loan.getMovie().getTitle().contains(searchString) || date.contains(searchString) || (loan.isLate() ? "late" : "not late").contains(searchString)) {
+            var date = dateFormatter.format(loan.calculateReturnDate().getTime()).toLowerCase();
+            var name = loan.getName().toLowerCase();
+            var movie = loan.getMovie().getTitle().toLowerCase();
+            var isLate = (loan.isLate() ? "late" : "not late").toLowerCase();
+            searchString = searchString.toLowerCase();
+            if (name.contains(searchString) || movie.contains(searchString) || date.contains(searchString) || isLate.contains(searchString)) {
                 foundLoans.add(loan);
             }
         }
