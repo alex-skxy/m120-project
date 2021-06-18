@@ -14,9 +14,10 @@ public class MovieRepository {
         movies = new ArrayList<>();
     }
 
-    public static void createMovie(Movie movie) {
+    public static Movie createMovie(Movie movie) {
         movies.add(movie);
         movie.setId((long) movies.indexOf(movie));
+        return movie;
     }
 
     public static List<Movie> getAll() {

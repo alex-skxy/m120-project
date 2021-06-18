@@ -12,11 +12,12 @@ public class MembershipRepository {
 
     static {
         memberships = new ArrayList<>();
-        createMembership(new Membership(null, "Gold", 15));
-        createMembership(new Membership(null, "Silver", 10));
-        createMembership(new Membership(null, "Bronze", 5));
-        createMembership(new Membership(null, "Default", 0));
-        createMembership(new Membership(null, "Piss", -5));
+        createMembership(Membership.builder().title("Gold").extraDays(15).build());
+        createMembership(Membership.builder().title("Silver").extraDays(10).build());
+        createMembership(Membership.builder().title("Bronze").extraDays(5).build());
+        createMembership(Membership.builder().title("Default").extraDays(0).build());
+        createMembership(Membership.builder().title("Piss").extraDays(-5).build());
+
     }
 
     public static Membership getMembership(String title) {
