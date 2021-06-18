@@ -40,89 +40,117 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-
-<VBox prefHeight="559.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alexdaniel.m120project.controller.TableController">
-    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0">
-         <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Label alignment="CENTER" text="Name" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <TextField AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Label alignment="CENTER" text="Movie" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <TextField AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Label alignment="CENTER" text="Membership" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <TextField AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Label alignment="CENTER" text="Loan until" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <TextField disable="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-        <AnchorPane prefHeight="50.0">
-            <children>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <children>
-                        <Button mnemonicParsing="false" text="Cancel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                    </children>
-                </AnchorPane>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <children>
-                        <Button mnemonicParsing="false" text="Save change" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                    </children>
-                </AnchorPane>
-            </children>
-            <VBox.margin>
-                <Insets />
-            </VBox.margin>
-        </AnchorPane>
-    </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-</VBox>
+<?import javafx.scene.Scene?>
+<?import javafx.stage.Stage?>
+<Stage title="Videothek" fx:controller="alexdaniel.m120project.controller.EditController"
+       xmlns="http://javafx.com/javafx/16"
+       xmlns:fx="http://javafx.com/fxml/1">
+    <scene>
+        <Scene>
+            <VBox prefHeight="559.0" prefWidth="951.0">
+                <children>
+                    <VBox prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                        <children>
+                                            <Label alignment="CENTER" text="Name" AnchorPane.bottomAnchor="0.0"
+                                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                   AnchorPane.topAnchor="0.0"/>
+                                        </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                        <children>
+                                            <TextField AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </HBox>
+                            <HBox prefHeight="100.0" prefWidth="200.0">
+                                <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                        <children>
+                                            <Label alignment="CENTER" text="Movie" AnchorPane.bottomAnchor="0.0"
+                                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                   AnchorPane.topAnchor="0.0"/>
+                                        </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                        <children>
+                                            <TextField AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </HBox>
+                            <HBox prefHeight="100.0" prefWidth="200.0">
+                                <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                        <children>
+                                            <Label alignment="CENTER" text="Membership" AnchorPane.bottomAnchor="0.0"
+                                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                   AnchorPane.topAnchor="0.0"/>
+                                        </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                        <children>
+                                            <TextField AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </HBox>
+                            <HBox prefHeight="100.0" prefWidth="200.0">
+                                <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                        <children>
+                                            <Label alignment="CENTER" text="Loan until" AnchorPane.bottomAnchor="0.0"
+                                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                   AnchorPane.topAnchor="0.0"/>
+                                        </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                        <children>
+                                            <TextField disable="true" AnchorPane.bottomAnchor="0.0"
+                                                       AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                       AnchorPane.topAnchor="0.0"/>
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </HBox>
+                        </children>
+                    </VBox>
+                    <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"/>
+                    <AnchorPane prefHeight="50.0">
+                        <children>
+                            <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+                                        AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <children>
+                                    <Button mnemonicParsing="false" text="Cancel" AnchorPane.bottomAnchor="0.0"
+                                            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                            AnchorPane.topAnchor="0.0"/>
+                                </children>
+                            </AnchorPane>
+                            <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+                                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <children>
+                                    <Button mnemonicParsing="false" text="Save change" AnchorPane.bottomAnchor="0.0"
+                                            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                            AnchorPane.topAnchor="0.0"/>
+                                </children>
+                            </AnchorPane>
+                        </children>
+                        <VBox.margin>
+                            <Insets/>
+                        </VBox.margin>
+                    </AnchorPane>
+                </children>
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                </padding>
+            </VBox>
+        </Scene>
+    </scene>
+</Stage>

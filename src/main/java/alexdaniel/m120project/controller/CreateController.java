@@ -65,7 +65,7 @@ public class CreateController {
         loan.setMembership(membershipComboBox.getSelectionModel().getSelectedItem());
         LoanRepository.createLoan(loan);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        WindowHelper.getWindowHelper().openTableStage();
+        WindowHelper.getWindowHelper().openTableStage(stage);
         stage.hide();
     }
 

@@ -17,13 +17,24 @@ public class WindowHelper {
     }
 
 
-    public void openCreateStage() throws IOException {
+    public void openCreateStage(Stage previousStage) throws IOException {
         Stage stage = FXMLLoader.load(getClass().getResource("view/createdisplay.fxml"));
+        stage.setY(previousStage.getY());
+        stage.setX(previousStage.getX());
         stage.show();
     }
 
-    public void openTableStage() throws IOException {
+    public void openTableStage(Stage previousStage) throws IOException {
         Stage stage = FXMLLoader.load(getClass().getResource("view/tabledisplay.fxml"));
+        stage.setY(previousStage.getY());
+        stage.setX(previousStage.getX());
+        stage.show();
+    }
+
+    public void openEditStage(Stage previousStage) throws IOException {
+        Stage stage = FXMLLoader.load(getClass().getResource("view/editdisplay.fxml"));
+        stage.setY(previousStage.getY());
+        stage.setX(previousStage.getX());
         stage.show();
     }
 }

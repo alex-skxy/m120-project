@@ -43,13 +43,15 @@ public class TableController {
         loanTable.getItems().addAll(loans);
     }
 
-    public void doStuff(ActionEvent actionEvent) {
-
+    public void edit(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        WindowHelper.getWindowHelper().openEditStage(stage);
+        stage.hide();
     }
 
     public void create(ActionEvent actionEvent) throws IOException {
-        WindowHelper.getWindowHelper().openCreateStage();
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        WindowHelper.getWindowHelper().openCreateStage(stage);
         stage.hide();
     }
 }
