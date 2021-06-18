@@ -1,14 +1,18 @@
 package alexdaniel.m120project.controller;
 
+import alexdaniel.m120project.WindowHelper;
 import alexdaniel.m120project.model.entity.Loan;
 import alexdaniel.m120project.model.entity.Membership;
 import alexdaniel.m120project.model.repository.MembershipRepository;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class EditController {
