@@ -17,6 +17,7 @@ import javafx.util.Callback;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Objects;
 
 public class CreateController {
     private Loan loan;
@@ -59,13 +60,30 @@ public class CreateController {
     }
 
     public void create(ActionEvent actionEvent) throws IOException {
-        loan.setName(nameField.getText());
-        loan.setMovie(MovieRepository.getMovie(movieField.getText()));
-        loan.setMembership(membershipComboBox.getSelectionModel().getSelectedItem());
-        LoanRepository.createLoan(loan);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        WindowHelper.getWindowHelper().openTableStage(stage);
-        stage.hide();
+        if (validateInput(stage)) {
+            loan.setName(nameField.getText());
+            loan.setMovie(MovieRepository.getMovie(movieField.getText()));
+            loan.setMembership(membershipComboBox.getSelectionModel().getSelectedItem());
+            LoanRepository.createLoan(loan);
+            WindowHelper.getWindowHelper().openTableStage(stage);
+            stage.hide();
+        }
+    }
+
+    private boolean validateInput(Stage stage) {
+        var warningMessage = "";
+        if (Objects.equals(nameField.getText(), "")) {
+            warningMessage += "Name must not be empty.\n";
+        }
+        if (Objects.equals(movieField.getText(), "")) {
+            warningMessage += "Movie must not be empty.\n";
+        }
+        boolean valid = Objects.equals(warningMessage, "");
+        if (!valid) {
+            WindowHelper.showAlert(Alert.AlertType.ERROR, stage, "Invalid Input", warningMessage);
+        }
+        return valid;
     }
 
     public void calculateLoanUntilDate(ActionEvent actionEvent) {

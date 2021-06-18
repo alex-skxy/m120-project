@@ -14,6 +14,7 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class EditController {
     public Loan loan;
@@ -70,6 +71,25 @@ public class EditController {
     }
 
     public void save(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        if (validateInput(stage)) {
+
+        }
+    }
+
+    private boolean validateInput(Stage stage) {
+        var warningMessage = "";
+        if (Objects.equals(nameField.getText(), "")) {
+            warningMessage += "Name must not be empty.\n";
+        }
+        if (Objects.equals(movieField.getText(), "")) {
+            warningMessage += "Movie must not be empty.\n";
+        }
+        boolean valid = Objects.equals(warningMessage, "");
+        if (!valid) {
+            WindowHelper.showAlert(Alert.AlertType.ERROR, stage, "Invalid Input", warningMessage);
+        }
+        return valid;
     }
 
     public void cancel(ActionEvent actionEvent) throws IOException {

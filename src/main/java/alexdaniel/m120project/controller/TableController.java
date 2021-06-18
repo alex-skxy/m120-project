@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -55,11 +56,13 @@ public class TableController {
 
     public void edit(ActionEvent actionEvent) throws IOException {
         var selectedLoan = loanTable.getSelectionModel().getSelectedItem();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         if (selectedLoan != null) {
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             var editController = WindowHelper.getWindowHelper().openEditStage(stage);
             editController.setLoan(selectedLoan);
             stage.hide();
+        } else {
+            WindowHelper.showAlert(Alert.AlertType.WARNING, stage, "Warning", "Must select a loan on the table to edit!");
         }
     }
 
