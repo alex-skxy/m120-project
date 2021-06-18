@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Optional;
 
 public class TableController {
@@ -31,11 +32,20 @@ public class TableController {
     public void initialize() {
         fillTable();
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        movieTitleColumn.setCellValueFactory(cellDataFeature -> new SimpleStringProperty(Optional.of(cellDataFeature.getValue().movie.title).orElse("")));
-        // TODO: return date calculation
-        expectedReturnDateColumn.setCellValueFactory(cellDataFeature -> new SimpleStringProperty(""));
-        // TODO: isLate calculation
-        isLateColumn.setCellValueFactory(cellDataFeature -> new SimpleStringProperty(""));
+        movieTitleColumn.setCellValueFactory(
+                cellDataFeature -> new SimpleStringProperty(Optional.of(cellDataFeature.getValue().movie.title).orElse(""))
+        );
+
+        var dateFormatter = new SimpleDateFormat("dd.MM.yyyy");
+
+        expectedReturnDateColumn.setCellValueFactory(
+                cellDataFeature -> new SimpleStringProperty(
+                        dateFormatter.format(cellDataFeature.getValue().calculateReturnDate().getTime()
+                        )
+                ));
+        isLateColumn.setCellValueFactory(
+                cellDataFeature -> new SimpleStringProperty(cellDataFeature.getValue().isLate() ? "late" : "not late")
+        );
     }
 
     public void fillTable() {

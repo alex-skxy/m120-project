@@ -9,7 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -22,7 +24,7 @@ public class Main extends Application {
         LoanRepository.createLoan(new Loan(null, "alex", new Date(),
                 new Movie(null, "A wild ride to down to hell on a stripper pole while being sexy and gay, fuck yeah, this is lil nas x"),
                 MembershipRepository.getMembership("Piss"), false));
-        LoanRepository.createLoan(new Loan(null, "daniel", new Date(),
+        LoanRepository.createLoan(new Loan(null, "daniel", new GregorianCalendar(2014, Calendar.AUGUST, 12).getTime(),
                 new Movie(null, "Kumo desu ga nani ka: into the spiderverse"),
                 MembershipRepository.getMembership("Silver"), false));
 
