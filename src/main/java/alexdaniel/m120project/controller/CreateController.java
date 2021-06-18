@@ -72,4 +72,10 @@ public class CreateController {
         var returnDate = loan.calculateReturnDate();
         loanUntilField.setValue(LocalDateTime.ofInstant(returnDate.toInstant(), returnDate.getTimeZone().toZoneId()).toLocalDate());
     }
+
+    public void cancel(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        WindowHelper.getWindowHelper().openTableStage(stage);
+        stage.hide();
+    }
 }

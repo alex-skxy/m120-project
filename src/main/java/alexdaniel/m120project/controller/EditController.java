@@ -31,5 +31,11 @@ public class EditController {
     public void initialize() {
 
     }
+
+    public void cancel(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        WindowHelper.getWindowHelper().openTableStage(stage);
+        stage.hide();
+    }
 }
 
