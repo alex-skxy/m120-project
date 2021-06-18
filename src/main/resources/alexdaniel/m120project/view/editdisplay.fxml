@@ -144,8 +144,8 @@
                             <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
                                         AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <children>
-                                    <Button fx:id="createButton" onAction="#save" mnemonicParsing="false"
-                                            text="Create"
+                                    <Button fx:id="saveButton" onAction="#save" mnemonicParsing="false"
+                                            text="Save"
                                             AnchorPane.bottomAnchor="0.0"
                                             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                                             AnchorPane.topAnchor="0.0"/>

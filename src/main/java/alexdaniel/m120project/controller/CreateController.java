@@ -56,7 +56,10 @@ public class CreateController {
             }
         });
         membershipComboBox.setButtonCell(membershipComboBox.getCellFactory().call(null));
-        membershipComboBox.getSelectionModel().select(MembershipRepository.getMembership("Default"));
+        var defaultMembership = MembershipRepository.getMembership("Default");
+        membershipComboBox.getSelectionModel().select(defaultMembership);
+        loan.setMembership(defaultMembership);
+        calculateLoanUntilDate(new ActionEvent());
     }
 
     public void create(ActionEvent actionEvent) throws IOException {

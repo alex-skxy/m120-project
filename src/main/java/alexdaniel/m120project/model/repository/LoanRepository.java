@@ -1,7 +1,6 @@
 package alexdaniel.m120project.model.repository;
 
 import alexdaniel.m120project.model.entity.Loan;
-import com.google.common.collect.ImmutableList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +18,14 @@ public class LoanRepository {
         loan.id = (long) loans.indexOf(loan);
     }
 
-    public static List<Loan> getNotReturned(){
+    public static void saveLoan(Loan loan) {
+        var actualLoan = loans.get(loan.id.intValue());
+        actualLoan.setName(loan.getName());
+        actualLoan.setMembership(loan.getMembership());
+        actualLoan.setMovie(loan.getMovie());
+    }
+
+    public static List<Loan> getNotReturned() {
         return loans.stream().filter(loan -> !loan.getReturned()).collect(Collectors.toUnmodifiableList());
     }
 }

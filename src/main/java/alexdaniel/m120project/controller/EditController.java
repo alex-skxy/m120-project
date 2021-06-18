@@ -3,7 +3,9 @@ package alexdaniel.m120project.controller;
 import alexdaniel.m120project.WindowHelper;
 import alexdaniel.m120project.model.entity.Loan;
 import alexdaniel.m120project.model.entity.Membership;
+import alexdaniel.m120project.model.repository.LoanRepository;
 import alexdaniel.m120project.model.repository.MembershipRepository;
+import alexdaniel.m120project.model.repository.MovieRepository;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,7 +30,7 @@ public class EditController {
     @FXML
     public DatePicker loanUntilField;
     @FXML
-    public Button createButton;
+    public Button saveButton;
     @FXML
     public Button cancelButton;
 
@@ -59,7 +61,6 @@ public class EditController {
 
     public void setLoan(Loan loan) {
         this.loan = loan;
-        System.out.println("" + nameField);
         nameField.setText(loan.getName());
         movieField.setText(loan.getMovie().getTitle());
         membershipComboBox.getSelectionModel().select(loan.getMembership());
@@ -73,7 +74,12 @@ public class EditController {
     public void save(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         if (validateInput(stage)) {
-
+            loan.setName(nameField.getText());
+            loan.setMovie(MovieRepository.getMovie(movieField.getText()));
+            loan.setMembership(membershipComboBox.getSelectionModel().getSelectedItem());
+            LoanRepository.saveLoan(loan);
+            WindowHelper.getWindowHelper().openTableStage(stage);
+            stage.hide();
         }
     }
 
