@@ -54,9 +54,13 @@ public class TableController {
     }
 
     public void edit(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        WindowHelper.getWindowHelper().openEditStage(stage);
-        stage.hide();
+        var selectedLoan = loanTable.getSelectionModel().getSelectedItem();
+        if (selectedLoan != null) {
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            var editController = WindowHelper.getWindowHelper().openEditStage(stage);
+            editController.setLoan(selectedLoan);
+            stage.hide();
+        }
     }
 
     public void create(ActionEvent actionEvent) throws IOException {

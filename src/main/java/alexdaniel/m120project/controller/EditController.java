@@ -1,35 +1,71 @@
 package alexdaniel.m120project.controller;
 
-import alexdaniel.m120project.WindowHelper;
 import alexdaniel.m120project.model.entity.Loan;
-import alexdaniel.m120project.model.repository.LoanRepository;
-import javafx.beans.property.SimpleStringProperty;
+import alexdaniel.m120project.model.entity.Membership;
+import alexdaniel.m120project.model.repository.MembershipRepository;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
+import javafx.scene.control.*;
+import javafx.util.Callback;
 
-import java.io.IOException;
-import java.util.Optional;
+import java.time.LocalDateTime;
 
 public class EditController {
+    public Loan loan;
+
     @FXML
-    public TableView<Loan> loanTable;
+    public TextField nameField;
     @FXML
-    public TableColumn<Loan, String> nameColumn;
+    public TextField movieField;
     @FXML
-    public TableColumn<Loan, String> movieTitleColumn;
+    public ComboBox<Membership> membershipComboBox;
     @FXML
-    public TableColumn<Loan, String> expectedReturnDateColumn;
+    public DatePicker loanUntilField;
     @FXML
-    public TableColumn<Loan, String> isLateColumn;
+    public Button createButton;
+    @FXML
+    public Button cancelButton;
 
     @FXML
     public void initialize() {
+        membershipComboBox.setItems(FXCollections.observableList(MembershipRepository.getAll()));
+        membershipComboBox.setCellFactory(new Callback<ListView<Membership>, ListCell<Membership>>() {
 
+            @Override
+            public ListCell<Membership> call(ListView<Membership> l) {
+                return new ListCell<Membership>() {
+
+                    @Override
+                    protected void updateItem(Membership item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (loan != null) {
+                            loan.setMembership(item);
+                        }
+
+                        setText(item == null ? "" : item.title);
+                    }
+                };
+            }
+        });
+        membershipComboBox.setButtonCell(membershipComboBox.getCellFactory().call(null));
+        membershipComboBox.getSelectionModel().select(MembershipRepository.getMembership("Default"));
+    }
+
+    public void setLoan(Loan loan) {
+        this.loan = loan;
+        System.out.println("" + nameField);
+        nameField.setText(loan.getName());
+        movieField.setText(loan.getMovie().getTitle());
+        membershipComboBox.getSelectionModel().select(loan.getMembership());
+    }
+
+    public void calculateLoanUntilDate(ActionEvent actionEvent) {
+        var returnDate = loan.calculateReturnDate();
+        loanUntilField.setValue(LocalDateTime.ofInstant(returnDate.toInstant(), returnDate.getTimeZone().toZoneId()).toLocalDate());
+    }
+
+    public void save(ActionEvent actionEvent) {
     }
 
     public void cancel(ActionEvent actionEvent) throws IOException {
