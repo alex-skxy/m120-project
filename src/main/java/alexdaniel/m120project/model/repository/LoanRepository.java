@@ -15,11 +15,11 @@ public class LoanRepository {
 
     public static void createLoan(Loan loan) {
         loans.add(loan);
-        loan.id = (long) loans.indexOf(loan);
+        loan.setId((long) loans.indexOf(loan));
     }
 
     public static void saveLoan(Loan loan) {
-        var actualLoan = loans.get(loan.id.intValue());
+        var actualLoan = loans.get(loan.getId().intValue());
         actualLoan.setName(loan.getName());
         actualLoan.setMembership(loan.getMembership());
         actualLoan.setMovie(loan.getMovie());

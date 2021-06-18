@@ -8,8 +8,7 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class Membership {
-    public Long id;
-
-    public String title;
-    public Integer extraDays;
+    private Long id;
+    private String title;
+    private Integer extraDays;
 }

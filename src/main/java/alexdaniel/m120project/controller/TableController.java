@@ -37,7 +37,7 @@ public class TableController {
         fillTable();
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         movieTitleColumn.setCellValueFactory(
-                cellDataFeature -> new SimpleStringProperty(Optional.of(cellDataFeature.getValue().movie.title).orElse(""))
+                cellDataFeature -> new SimpleStringProperty(Optional.of(cellDataFeature.getValue().getMovie().getTitle()).orElse(""))
         );
 
         var dateFormatter = new SimpleDateFormat("dd.MM.yyyy");

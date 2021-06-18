@@ -1,7 +1,6 @@
 package alexdaniel.m120project.model.repository;
 
 import alexdaniel.m120project.model.entity.Membership;
-import alexdaniel.m120project.model.entity.Movie;
 import com.google.common.collect.ImmutableList;
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ public class MembershipRepository {
     }
 
     public static Membership getMembership(String title) {
-        return memberships.stream().filter(membership -> Objects.equals(membership.title, title)).findFirst().orElse(memberships.get(3));
+        return memberships.stream().filter(membership -> Objects.equals(membership.getTitle(), title)).findFirst().orElse(memberships.get(3));
     }
 
     public static List<Membership> getAll() {
@@ -30,6 +29,6 @@ public class MembershipRepository {
 
     private static void createMembership(Membership membership) {
         memberships.add(membership);
-        membership.id = (long) memberships.indexOf(membership);
+        membership.setId((long) memberships.indexOf(membership));
     }
 }

@@ -8,6 +8,6 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class Movie {
-    public Long id;
-    public String title;
+    private Long id;
+    private String title;
 }

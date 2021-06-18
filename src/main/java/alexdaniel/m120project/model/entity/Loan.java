@@ -11,12 +11,12 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 public class Loan {
-    public Long id;
-    public String name;
-    public Date date;
-    public Movie movie;
-    public Membership membership;
-    public Boolean returned;
+    private Long id;
+    private String name;
+    private Date date;
+    private Movie movie;
+    private Membership membership;
+    private Boolean returned;
 
     public boolean isLate() {
         var today = Calendar.getInstance();
@@ -26,7 +26,7 @@ public class Loan {
     public Calendar calculateReturnDate() {
         var calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.add(Calendar.DAY_OF_MONTH, membership.extraDays + 30);
+        calendar.add(Calendar.DAY_OF_MONTH, membership.getExtraDays() + 30);
         return calendar;
     }
 }

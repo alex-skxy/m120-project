@@ -50,7 +50,7 @@ public class CreateController {
                     protected void updateItem(Membership item, boolean empty) {
                         super.updateItem(item, empty);
                         loan.setMembership(item);
-                        setText(item == null ? "" : item.title);
+                        setText(item == null ? "" : item.getTitle());
                     }
                 };
             }
