@@ -49,7 +49,8 @@
                         <children>
                             <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                 <children>
-                                    <TextField AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    <TextField onAction="#search" fx:id="searchBar" AnchorPane.bottomAnchor="0.0"
+                                               AnchorPane.leftAnchor="0.0"
                                                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                         <font>
                                             <Font size="16.0"/>
@@ -59,7 +60,8 @@
                             </AnchorPane>
                             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                 <children>
-                                    <Button mnemonicParsing="false" text="Search" AnchorPane.bottomAnchor="0.0"
+                                    <Button onAction="#search" mnemonicParsing="false" text="Search"
+                                            AnchorPane.bottomAnchor="0.0"
                                             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                                             AnchorPane.topAnchor="0.0">
                                     </Button>
@@ -103,7 +105,8 @@
                             <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
                                         AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <children>
-                                    <Button onAction="#create" mnemonicParsing="false" text="Create" AnchorPane.bottomAnchor="0.0"
+                                    <Button onAction="#create" mnemonicParsing="false" text="Create"
+                                            AnchorPane.bottomAnchor="0.0"
                                             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                                             AnchorPane.topAnchor="0.0">
                                     </Button>

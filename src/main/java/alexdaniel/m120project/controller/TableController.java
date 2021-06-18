@@ -7,14 +7,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class TableController {
@@ -28,6 +28,8 @@ public class TableController {
     public TableColumn<Loan, String> expectedReturnDateColumn;
     @FXML
     public TableColumn<Loan, String> isLateColumn;
+    @FXML
+    public TextField searchBar;
 
     @FXML
     public void initialize() {
@@ -52,6 +54,24 @@ public class TableController {
     public void fillTable() {
         var loans = LoanRepository.getNotReturned();
         loanTable.getItems().addAll(loans);
+    }
+
+    public void fillTable(String searchString) {
+        var loans = LoanRepository.getNotReturned();
+        List<Loan> foundLoans = new ArrayList<>();
+        var dateFormatter = new SimpleDateFormat("dd.MM.yyyy");
+        for (Loan loan : loans) {
+            var date = dateFormatter.format(loan.calculateReturnDate().getTime());
+            if (loan.getName().contains(searchString) || loan.getMovie().getTitle().contains(searchString) || date.contains(searchString) || (loan.isLate() ? "late" : "not late").contains(searchString)) {
+                foundLoans.add(loan);
+            }
+        }
+        loanTable.getItems().addAll(foundLoans);
+    }
+
+    public void search() {
+        loanTable.getItems().clear();
+        fillTable(searchBar.getText());
     }
 
     public void edit(ActionEvent actionEvent) throws IOException {
