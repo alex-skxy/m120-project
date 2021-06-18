@@ -33,6 +33,8 @@ public class EditController {
     public Button saveButton;
     @FXML
     public Button cancelButton;
+    @FXML
+    public SwitchButton switchButton;
 
     @FXML
     public void initialize() {
@@ -71,12 +73,13 @@ public class EditController {
         loanUntilField.setValue(LocalDateTime.ofInstant(returnDate.toInstant(), returnDate.getTimeZone().toZoneId()).toLocalDate());
     }
 
-    public void save(ActionEvent actionEvent) {
+    public void save(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         if (validateInput(stage)) {
             loan.setName(nameField.getText());
             loan.setMovie(MovieRepository.getMovie(movieField.getText()));
             loan.setMembership(membershipComboBox.getSelectionModel().getSelectedItem());
+            loan.setReturned(switchButton.switchOnProperty().get());
             LoanRepository.saveLoan(loan);
             WindowHelper.getWindowHelper().openTableStage(stage);
             stage.hide();

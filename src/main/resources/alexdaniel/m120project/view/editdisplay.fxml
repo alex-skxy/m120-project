@@ -32,18 +32,12 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import alexdaniel.m120project.controller.SwitchButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.Scene?>
 <?import javafx.stage.Stage?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <Stage title="Videothek" fx:controller="alexdaniel.m120project.controller.EditController"
        xmlns="http://javafx.com/javafx/16"
        xmlns:fx="http://javafx.com/fxml/1">
@@ -127,6 +121,31 @@
                                     </AnchorPane>
                                 </children>
                             </HBox>
+                            <HBox prefHeight="100.0" prefWidth="200.0">
+                                <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                        <children>
+                                            <Label alignment="CENTER" text="Returned" AnchorPane.bottomAnchor="0.0"
+                                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                   AnchorPane.topAnchor="0.0"/>
+                                        </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                        <children>
+                                            <StackPane AnchorPane.bottomAnchor="0.0"
+                                                       AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                       AnchorPane.topAnchor="0.0"
+                                                       alignment="CENTER_LEFT"
+                                            >
+
+                                                <SwitchButton fx:id="switchButton"
+                                                />
+
+                                            </StackPane>
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </HBox>
                         </children>
                     </VBox>
                     <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"/>
@@ -135,7 +154,8 @@
                             <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
                                         AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <children>
-                                    <Button fx:id="cancelButton" onAction="#cancel" mnemonicParsing="false" text="Cancel"
+                                    <Button fx:id="cancelButton" onAction="#cancel" mnemonicParsing="false"
+                                            text="Cancel"
                                             AnchorPane.bottomAnchor="0.0"
                                             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                                             AnchorPane.topAnchor="0.0"/>
