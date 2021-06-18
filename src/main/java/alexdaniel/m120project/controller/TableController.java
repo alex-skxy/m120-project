@@ -62,12 +62,13 @@ public class TableController {
         List<Loan> foundLoans = new ArrayList<>();
         var dateFormatter = new SimpleDateFormat("dd.MM.yyyy");
         for (Loan loan : loans) {
-            var date = dateFormatter.format(loan.calculateReturnDate().getTime()).toLowerCase();
-            var name = loan.getName().toLowerCase();
-            var movie = loan.getMovie().getTitle().toLowerCase();
-            var isLate = (loan.isLate() ? "late" : "not late").toLowerCase();
+            var name = loan.getName();
+            var movie = loan.getMovie().getTitle();
+            var date = dateFormatter.format(loan.calculateReturnDate().getTime());
+            var isLate = (loan.isLate() ? "late" : "not late");
+            var row = (name + " " + movie + " " + date + " " + isLate).toLowerCase();
             searchString = searchString.toLowerCase();
-            if (name.contains(searchString) || movie.contains(searchString) || date.contains(searchString) || isLate.contains(searchString)) {
+            if (row.contains(searchString)) {
                 foundLoans.add(loan);
             }
         }
