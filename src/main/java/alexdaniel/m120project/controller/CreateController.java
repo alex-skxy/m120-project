@@ -16,7 +16,6 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.Calendar;
 import java.util.Date;
 
 public class CreateController {
@@ -70,10 +69,7 @@ public class CreateController {
     }
 
     public void calculateLoanUntilDate(ActionEvent actionEvent) {
-        var calendar = Calendar.getInstance();
-        calendar.setTime(loan.getDate());
-        calendar.add(Calendar.DAY_OF_MONTH, loan.getMembership().getExtraDays() + 30);
-
-        loanUntilField.setValue(LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate());
+        var returnDate = loan.calculateReturnDate();
+        loanUntilField.setValue(LocalDateTime.ofInstant(returnDate.toInstant(), returnDate.getTimeZone().toZoneId()).toLocalDate());
     }
 }

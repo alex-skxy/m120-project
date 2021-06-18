@@ -14,8 +14,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Optional;
 
 public class TableController {
@@ -40,35 +38,14 @@ public class TableController {
 
         var dateFormatter = new SimpleDateFormat("dd.MM.yyyy");
 
-        // TODO: return date calculation
         expectedReturnDateColumn.setCellValueFactory(
                 cellDataFeature -> new SimpleStringProperty(
-                        dateFormatter.format(calculateReturnDate(
-                                cellDataFeature.getValue().date,
-                                cellDataFeature.getValue().membership.extraDays + 30).getTime()
+                        dateFormatter.format(cellDataFeature.getValue().calculateReturnDate().getTime()
                         )
                 ));
-        // TODO: isLate calculation
         isLateColumn.setCellValueFactory(
-                cellDataFeature -> new SimpleStringProperty(isLate(calculateReturnDate(
-                        cellDataFeature.getValue().date,
-                        cellDataFeature.getValue().membership.extraDays + 30)) ? "late" : "not late")
+                cellDataFeature -> new SimpleStringProperty(cellDataFeature.getValue().isLate() ? "late" : "not late")
         );
-    }
-
-    private Boolean isLate(Calendar returnDate) {
-        var today = Calendar.getInstance();
-        today.setTime(new Date());
-
-        return returnDate.compareTo(today) < 0;
-    }
-
-    private Calendar calculateReturnDate(Date loanDate, int extraDays) {
-        var calendar = Calendar.getInstance();
-        calendar.setTime(loanDate);
-        calendar.add(Calendar.DAY_OF_MONTH, extraDays);
-
-        return calendar;
     }
 
     public void fillTable() {
