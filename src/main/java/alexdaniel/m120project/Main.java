@@ -25,7 +25,7 @@ public class Main extends Application {
                         .name("alex")
                         .date(new Date())
                         .movie(MovieRepository.getMovie(
-                                "A wild ride to down to hell on a stripper pole while being sexy and gay, fuck yeah, this is lil nas x"
+                                "Frogman: homestuck"
                         ))
                         .membership(MembershipRepository.getMembership("Piss"))
                         .returned(false)
